@@ -1,5 +1,6 @@
 /* Quality Coat site scripts: mobile nav toggle + quote form (FormSubmit AJAX). */
 
+
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".main-nav");
@@ -9,13 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+
   var form = document.getElementById("quote-form");
   if (!form) return;
 
-  // PLACEHOLDER: swap in the real inbox address before launch.
-  // The client asked for a clearly fake address for now, so submissions
-  // will not deliver anywhere until a real address is set here.
-  var QUOTE_FORM_ENDPOINT = "https://formsubmit.co/ajax/quotes@qualitycoat.example.com";
+
+  // Live inbox: qualitycoat27@gmail.com via FormSubmit.
+  var QUOTE_FORM_ENDPOINT = "https://formsubmit.co/ajax/qualitycoat27@gmail.com";
+
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -51,3 +53,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
