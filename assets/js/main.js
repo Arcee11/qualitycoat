@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Before / after sliders: one transparent range input drives the clip-path.
+  document.querySelectorAll(".ba-slider").forEach(function (slider) {
+    var range = slider.querySelector('input[type="range"]');
+    if (!range) return;
+    var setPos = function () {
+      var p = Number(range.value);
+      if (isNaN(p)) p = 50;
+      p = Math.max(0, Math.min(100, p));
+      slider.style.setProperty("--ba-pos", p + "%");
+    };
+    range.addEventListener("input", setPos);
+    range.addEventListener("change", setPos);
+    setPos();
+  });
+
 
   var form = document.getElementById("quote-form");
   if (!form) return;
